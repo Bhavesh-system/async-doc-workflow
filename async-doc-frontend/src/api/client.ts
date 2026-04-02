@@ -1,9 +1,9 @@
 import ky from "ky";
 
 export const api = ky.create({
-  prefixUrl: "http://localhost:8000",
+  prefixUrl: import.meta.env.VITE_API_URL || "http://localhost:8000",
   timeout: 10000,
-  credentials: "include", // optional for auth cookies
+  credentials: "include",
   headers: {
     Accept: "application/json",
   },
