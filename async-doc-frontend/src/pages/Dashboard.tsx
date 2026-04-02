@@ -30,6 +30,7 @@ export default function Dashboard() {
           file: new File([], added.filename),
           status: added.status as FileEntry["status"],
           extracted: [],
+          progress: 0,
         },
         ...prev,
       ];
