@@ -21,14 +21,15 @@ app = FastAPI(
 )
 
 # ── CORS (allow frontend dev server) ─────────────────────────────
+# from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=["*"],  # temporary - works for testing
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # ── Routers ───────────────────────────────────────────────────────
 app.include_router(documents.router)
 app.include_router(ws.router)
